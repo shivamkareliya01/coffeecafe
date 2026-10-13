@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUREN | The Architecture of Cold Brew</title>
+  <meta name="description" content="AUREN Cold Brew — A cinematic cold coffee experience. 24-hour slow extraction, sub-zero crystal ice, and kinetic liquid perfection.">
+  <meta name="keywords" content="AUREN, cold brew, luxury coffee, 1000 FPS coffee, artisanal coffee, slow drip">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AUREN | The Architecture of Cold Brew">
+  <meta property="og:description" content="Experience the slow-motion kinetic beauty of sub-zero crystal ice meeting 24-hour slow-extracted cold brew.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit (Display & Body) & Cormorant Garamond (Italic accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading-active">
+
+  <!-- Subtle Film Grain / Noise Overlay (3% opacity) -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+
+  <!-- Luxury Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-mark">
+        <span class="mark-sub">EST. 2026</span>
+        <h1 class="mark-brand">A U R E N</h1>
+        <span class="mark-category">COLD BREW RESERVE</span>
+      </div>
+
+      <div class="preloader-progress-wrap">
+        <div class="preloader-bar">
+          <div class="preloader-fill" id="preloaderFill"></div>
+        </div>
+        <div class="preloader-meta">
+          <span class="preloader-status" id="preloaderStatus">SYNCHRONIZING 203 LIQUID FRAMES...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+
+      <div class="preloader-details">
+        <span>720 × 1280 PORTRAIT CINEMATOGRAPHY</span>
+        <span>•</span>
+        <span>1,000 FPS SUB-ZERO EXTRACTION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-monogram">A</span>
+        <span class="brand-name">AUREN</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#product" class="nav-link">Product</a>
+        <a href="#sensory" class="nav-link">Sensory</a>
+        <a href="#story" class="nav-link">Story</a>
+        <a href="#variants" class="nav-link">Variants</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Ambience Sound Toggle -->
+        <button class="sound-toggle-btn" id="soundToggle" aria-label="Toggle Sound Ambience" title="Toggle Cold Lounge Ambience">
+          <div class="sound-bars">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+            <span class="bar bar-4"></span>
+          </div>
+          <span class="sound-label">AMBIENCE</span>
+        </button>
+
+        <a href="#cta" class="btn btn-white-pill btn-sm">RESERVE BATCH</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main>
+
+    <!-- ====================================================================
+         HERO SECTION: 600VH PINNED SCROLL RUNWAY & TWO-ZONE STAGE
+         ==================================================================== -->
+    <section class="hero-scroll-container" id="hero">
+      <div class="hero-sticky-track">
+
+        <!-- Background Canvas Stage: Height-contain fit, #0E1110 fill, caramel glow, feathering -->
+        <div class="hero-canvas-bg" id="canvasStage">
+          <canvas id="cinemaCanvas"></canvas>
+          <div class="hero-vignette-overlay" aria-hidden="true"></div>
+          <div class="hero-bottom-scrim" aria-hidden="true"></div>
+        </div>
+
+        <!-- TWO-ZONE HERO LAYOUT: Text Column on Left, Tall Glass cleanly on Right -->
+        <div class="hero-two-zone-layout">
+
+          <!-- Left Column: Editorial Phase Text (Nothing overlaps the glass) -->
+          <div class="hero-left-column">
+            <div class="phase-text-stack">
+
+              <!-- Phase 01: Frames 1 - 50 -->
+              <div class="hero-phase-panel active" id="phase1" data-phase="1">
+                <div class="eyebrow-label">PHASE 01 • SUB-ZERO DESCENT</div>
+                <h1 class="hero-phase-title">
+                  <span class="title-line line-1">ELEVATE YOUR</span>
+                  <span class="title-line line-2">COLD BREW.</span>
+                </h1>
+                <p class="hero-phase-subtext">
+                  Precision 40mm crystal glacier cubes enter slow-motion free fall into 24-hour slow-extracted cold brew. Pure gravity. Liquid stillness.
+                </p>
+                <div class="hero-phase-cta">
+                  <a href="#product" class="btn btn-white-pill btn-lg magnetic-btn">
+                    <span>EXPERIENCE AUREN</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phase 02: Frames 50 - 100 -->
+              <div class="hero-phase-panel" id="phase2" data-phase="2">
+                <div class="eyebrow-label">PHASE 02 • THE IMPACT</div>
+                <h2 class="hero-phase-title">
+                  <span class="title-line line-1">CRYSTAL</span>
+                  <span class="title-line line-2">GRAVITY.</span>
+                </h2>
+                <p class="hero-phase-subtext">
+                  At 1,000 frames per second, liquid surface tension shatters into a majestic parabolic splash crown against crystal walls.
+                </p>
+                <div class="hero-phase-cta">
+                  <a href="#sensory" class="btn btn-outline-pill btn-lg magnetic-btn">
+                    <span>INSPECT GLACIER ICE</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phase 03: Frames 100 - 150 -->
+              <div class="hero-phase-panel" id="phase3" data-phase="3">
+                <div class="eyebrow-label">PHASE 03 • VELVET CASCADE</div>
+                <h2 class="hero-phase-title">
+                  <span class="title-line line-1">VELVET</span>
+                  <span class="title-line line-2">CASCADE.</span>
+                </h2>
+                <p class="hero-phase-subtext">
+                  Micro-foamed crema ribbons coil through single-origin Ethiopian concentrate in a hypnotic equilibrium of deep amber and silk.
+                </p>
+                <div class="hero-phase-cta">
+                  <a href="#variants" class="btn btn-white-pill btn-lg magnetic-btn">
+                    <span>EXPLORE 4 VARIANTS</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phase 04: Frames 150 - 203 -->
+              <div class="hero-phase-panel" id="phase4" data-phase="4">
+                <div class="eyebrow-label">PHASE 04 • HARMONIC EQUILIBRIUM</div>
+                <h2 class="hero-phase-title">
+                  <span class="title-line line-1">HARMONIC</span>
+                  <span class="title-line line-2">EQUILIBRIUM.</span>
+                </h2>
+                <p class="hero-phase-subtext">
+                  The turbulence gently settles into serene clarity. 0.00% bitterness, 100% aromatic density. The luxury cold brew standard defined.
+                </p>
+                <div class="hero-phase-cta">
+                  <a href="#cta" class="btn btn-white-pill btn-lg magnetic-btn">
+                    <span>RESERVE BATCH</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column Spacer: Reserves area so text NEVER touches the glass -->
+          <div class="hero-right-spacer" aria-hidden="true"></div>
+
+        </div>
+
+        <!-- Bottom Left: Scroll Cue -->
+        <div class="hero-scroll-cue" id="heroScrollCue">
+          <div class="scroll-cue-indicator">
+            <div class="scroll-cue-pulse"></div>
+          </div>
+          <span class="scroll-cue-text">SCROLL TO EXPLORE</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION 1: PRODUCT EXPERIENCE (Close-up Visual Moments & Specs)
+         ==================================================================== -->
+    <section class="section product-section" id="product">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="eyebrow-label">CINEMATIC ARCHITECTURE</div>
+          <h2 class="section-title">THE ART OF SUB-ZERO EXTRACTION</h2>
+          <p class="section-lead">
+            Every bottle of AUREN represents a calibrated dance of temperature, surface tension, and 24-hour slow gravitational filtration.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          
+          <!-- Card 1: Nitro Cold Brew / Cascading Microfoam -->
+          <div class="product-card">
+            <div class="card-visual-wrap">
+              <img src="assets/coffee-nitro.jpg" alt="AUREN Nitro Cold Brew" class="card-img" loading="lazy">
+              <div class="card-badge">NITRO VELVET • 0.00% ACID</div>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FLUID MECHANICS</span>
+              <h3 class="card-title">Nitro Cold Brew</h3>
+              <p class="card-desc">
+                Infused under high-pressure food-grade nitrogen to produce a cascading micro-foam head and silky stout-like mouthfeel with rich dark cocoa depth.
+              </p>
+              <div class="card-specs">
+                <span class="spec-item">Velocity: 2.4 m/s</span>
+                <span class="spec-divider">•</span>
+                <span class="spec-item">Viscosity: 1.14 mPa·s</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Crystal Glacier Ice Sphere & Slow Drip -->
+          <div class="product-card">
+            <div class="card-visual-wrap">
+              <img src="assets/coffee-glacier-sphere.jpg" alt="AUREN Glacier Sphere Cold Brew" class="card-img" loading="lazy">
+              <div class="card-badge">GLACIER SPHERE • CHILLED</div>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">CRYOMORPHOLOGY</span>
+              <h3 class="card-title">Directional Glacier Crystal</h3>
+              <p class="card-desc">
+                Served over an oversized hand-carved crystal ice sphere, preserving intense amber clarity and zero melt dilution across an extended tasting ritual.
+              </p>
+              <div class="card-specs">
+                <span class="spec-item">Temp: -18°C</span>
+                <span class="spec-divider">•</span>
+                <span class="spec-item">Density: 0.917 g/cm³</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Layered Velvet Crema Swirl -->
+          <div class="product-card">
+            <div class="card-visual-wrap">
+              <img src="assets/coffee-velvet-crema.jpg" alt="AUREN Velvet Cream Swirl Cold Brew" class="card-img" loading="lazy">
+              <div class="card-badge">SWEET CREMA • MARBLED</div>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">TASTING SILK</span>
+              <h3 class="card-title">Equilibrium Crema</h3>
+              <p class="card-desc">
+                Artisanal sweet vanilla-infused cream hand-poured in hypnotic marbled ribbons through single-origin Ethiopian cold brew with notes of honey and milk chocolate.
+              </p>
+              <div class="card-specs">
+                <span class="spec-item">TDS: 4.8%</span>
+                <span class="spec-divider">•</span>
+                <span class="spec-item">Bitterness: 0.00%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION 2: INGREDIENTS & SENSORY LAB
+         ==================================================================== -->
+    <section class="section sensory-section" id="sensory">
+      <div class="container">
+
+        <div class="sensory-layout">
+          
+          <div class="sensory-content">
+            <div class="eyebrow-label">PURITY RATIO 1:8</div>
+            <h2 class="section-title">THE SENSORY TRIPTYCH</h2>
+            <p class="section-lead">
+              Three sacred elements come together in total isolation from thermal shock.
+            </p>
+
+            <div class="sensory-features">
+              
+              <div class="sensory-feature-row">
+                <div class="feature-index">01</div>
+                <div class="feature-info">
+                  <h4 class="feature-heading">Yirgacheffe Geisha Heirloom</h4>
+                  <p class="feature-text">High-altitude volcanic shade-grown beans naturally dried in parchment, presenting wild bergamot, dark stone fruit, and dark cocoa nibs.</p>
+                </div>
+              </div>
+
+              <div class="sensory-feature-row">
+                <div class="feature-index">02</div>
+                <div class="feature-info">
+                  <h4 class="feature-heading">Sub-Zero Mineral Hydro-Base</h4>
+                  <p class="feature-text">Quadruple-filtered alpine spring water mineral-balanced at 120 PPM hardness to extract delicate esters without drawing harsh astringency.</p>
+                </div>
+              </div>
+
+              <div class="sensory-feature-row">
+                <div class="feature-index">03</div>
+                <div class="feature-info">
+                  <h4 class="feature-heading">Nitrogen Cryo-Blanket</h4>
+                  <p class="feature-text">Bottled under high-purity inert nitrogen to permanently halt oxidation and lock in aromatic top notes until the crown is unsealed.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="sensory-media-wrap">
+            <div class="sensory-media-frame">
+              <img src="assets/sensory-drip.jpg" alt="AUREN Slow Extraction Tower" class="sensory-img" loading="lazy">
+              <div class="sensory-glow" aria-hidden="true"></div>
+              <div class="sensory-metric-overlay">
+                <div class="metric-box">
+                  <span class="metric-num">24h</span>
+                  <span class="metric-lbl">COLD STEEP</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-num">4°C</span>
+                  <span class="metric-lbl">CELL TEMP</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-num">100%</span>
+                  <span class="metric-lbl">AROMATICS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION 3: BRAND STORY SECTION (Scroll-Driven Editorial Reveal)
+         ==================================================================== -->
+    <section class="section story-section" id="story">
+      <div class="container story-container">
+        
+        <div class="story-header text-center">
+          <div class="eyebrow-label">OUR MANIFESTO</div>
+          <h2 class="story-quote">
+            "WE DO NOT BREW COFFEE WITH HEAT. WE SCULPT IT WITH TIME, GRAVITY, AND ICE."
+          </h2>
+        </div>
+
+        <div class="story-split-grid">
+          <div class="story-col">
+            <h3 class="story-subheading">REJECTING THERMAL DEGRADATION</h3>
+            <p class="story-paragraph">
+              Traditional hot coffee destroys delicate floral terpenes and oxidizes volatile lipids within minutes. AUREN was born from a singular obsession: what if extraction never exceeded 4 degrees Celsius?
+            </p>
+            <p class="story-paragraph">
+              By slowing fluid exchange to a rhythmic drop every three seconds across twenty-four hours, the bitter polyphenols remain trapped within the coffee bean matrix, while pure aromatic sweetness flows effortlessly into the receiving crystal vessel.
+            </p>
+          </div>
+
+          <div class="story-col">
+            <h3 class="story-subheading">THE ARCHITECTURE OF SILENCE</h3>
+            <p class="story-paragraph">
+              In a world of fast caffeine consumption, AUREN is an invitation into stillness. The hypnotic drop of ice, the majestic parabolic splash, the quiet settling into amber glass—every element is calibrated for sensory elevation.
+            </p>
+            <div class="story-signoff">
+              <span class="signoff-quote">"Liquid architecture for the discerning palate."</span>
+              <span class="signoff-author">— The AUREN Cryo-Atelier, Zurich</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION 4: VARIANTS SECTION (4 Elevated Cold Brew Expressions)
+         ==================================================================== -->
+    <section class="section variants-section" id="variants">
+      <div class="container">
+
+        <div class="section-header text-center">
+          <div class="eyebrow-label">THE 2026 COLLECTION</div>
+          <h2 class="section-title">FOUR CURATED PROFILES</h2>
+          <p class="section-lead">
+            Crafted in small reserve lots. Bottled in heavy ultraviolet-shielded glass.
+          </p>
+        </div>
+
+        <div class="variants-grid">
+
+          <!-- Variant 1: Classic Black Reserve -->
+          <div class="variant-card">
+            <div class="variant-img-wrap">
+              <img src="assets/variant-classic.jpg" alt="AUREN Classic Black Reserve" class="variant-img" loading="lazy">
+              <span class="variant-number">N° 01</span>
+            </div>
+            <div class="variant-info">
+              <span class="variant-origin">ETHIOPIA YIRGACHEFFE</span>
+              <h3 class="variant-name">Classic Black Reserve</h3>
+              <p class="variant-notes">Dark Cacao • Bergamot • Wild Jasmine • Black Cherry</p>
+              <div class="variant-footer">
+                <span class="variant-price">$18.00 / 330ml</span>
+                <a href="#cta" class="btn btn-outline-pill btn-sm">ALLOCATE</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant 2: Madagascar Vanilla Orchid -->
+          <div class="variant-card">
+            <div class="variant-img-wrap">
+              <img src="assets/variant-vanilla.jpg" alt="AUREN Madagascar Vanilla Orchid" class="variant-img" loading="lazy">
+              <span class="variant-number">N° 02</span>
+            </div>
+            <div class="variant-info">
+              <span class="variant-origin">SAMBAVA ORCHID INFUSION</span>
+              <h3 class="variant-name">Madagascar Vanilla</h3>
+              <p class="variant-notes">Bourbon Vanilla Bean • Toasted Cream • Amber Honey</p>
+              <div class="variant-footer">
+                <span class="variant-price">$20.00 / 330ml</span>
+                <a href="#cta" class="btn btn-outline-pill btn-sm">ALLOCATE</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant 3: Roasted Piedmont Hazelnut -->
+          <div class="variant-card">
+            <div class="variant-img-wrap">
+              <img src="assets/variant-hazelnut.jpg" alt="AUREN Roasted Hazelnut" class="variant-img" loading="lazy">
+              <span class="variant-number">N° 03</span>
+            </div>
+            <div class="variant-info">
+              <span class="variant-origin">NORTHERN ITALY CROP</span>
+              <h3 class="variant-name">Roasted Hazelnut</h3>
+              <p class="variant-notes">Tonda Gentile Hazelnut • Praline • Brown Butter • Warm Spices</p>
+              <div class="variant-footer">
+                <span class="variant-price">$22.00 / 330ml</span>
+                <a href="#cta" class="btn btn-outline-pill btn-sm">ALLOCATE</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant 4: Single-Origin Dark Cocoa Mocha -->
+          <div class="variant-card">
+            <div class="variant-img-wrap">
+              <img src="assets/variant-mocha.jpg" alt="AUREN Dark Cocoa Mocha" class="variant-img" loading="lazy">
+              <span class="variant-number">N° 04</span>
+            </div>
+            <div class="variant-info">
+              <span class="variant-origin">ECUADORIAN ARRIBA NACIONAL</span>
+              <h3 class="variant-name">Dark Cocoa Mocha</h3>
+              <p class="variant-notes">85% Cold Pressed Cacao • Madagascar Vanilla • Roasted Malt</p>
+              <div class="variant-footer">
+                <span class="variant-price">$22.00 / 330ml</span>
+                <a href="#cta" class="btn btn-outline-pill btn-sm">ALLOCATE</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION 5: CALL TO ACTION SECTION (Centered Luxury Invitation)
+         ==================================================================== -->
+    <section class="section cta-section" id="cta">
+      <div class="container text-center">
+        
+        <div class="cta-box">
+          <div class="cta-backdrop-glow" aria-hidden="true"></div>
+
+          <div class="eyebrow-label">PRIVATE HARVEST ALLOCATION</div>
+          <h2 class="cta-title">EXPERIENCE AUREN</h2>
+          <p class="cta-text">
+            Each batch is strictly limited to 1,500 individually numbered bottles per lunar cycle. Reserved direct to connoisseurs and fine-dining cellars worldwide.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="#hero" class="btn btn-white-pill btn-lg magnetic-btn">
+              <span>DISCOVER THE COLD BREW</span>
+            </a>
+            <button class="btn btn-outline-pill btn-lg magnetic-btn" id="reserveModalBtn">
+              <span>REQUEST ALLOCATION</span>
+            </button>
+          </div>
+
+          <div class="cta-meta">
+            <span>COMPLIMENTARY CRYO-COURIER ON 4+ BOTTLES</span>
+            <span>•</span>
+            <span>SHIPPED AT 4°C IN CUSTOM INSULATED CRATES</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ====================================================================
+       FOOTER: Minimal, Clean, Premium
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand-wrap">
+          <div class="footer-brand">AUREN</div>
+          <p class="footer-tagline">The Architecture of Cold Brew • Zurich & New York</p>
+        </div>
+
+        <div class="footer-nav">
+          <a href="#hero">Cinema Hero</a>
+          <a href="#product">Product</a>
+          <a href="#sensory">Sensory</a>
+          <a href="#story">Story</a>
+          <a href="#variants">Variants</a>
+          <a href="#cta">Allocation</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 AUREN COLD BREW INC. ALL RIGHTS RESERVED. 203 LIQUID FRAMES AT 1000 FPS.
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Privacy Policy</a>
+          <a href="#hero">Terms of Reserve</a>
+          <a href="#hero">Cellar Support</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
